@@ -1,0 +1,31 @@
+<%- include('../partials/header-main') %>
+<div class="container flex space-between align-center mt-7">
+  <div style="margin: 2.5rem auto;">
+    <img src="../../static/img/values-2.png" class="form-img-md">
+  </div>
+
+  <div class="form-box">
+    <h1 class="title mb-1 text-center">Login</h1>
+
+    <% if(typeof msg != 'undefined'){ %>
+      <p class="mb-1 text-center msg <%- msg.class %>" id="msg"><%- msg.text %></p>
+    <% } %>
+    
+    <form action="" method="post">
+      <fieldset class="form-group mb-1">
+        <legend class="ml-1"><label for="email">Email</label></legend>
+        <input type="email" name="email" id="email" value="<%- email %>"/>
+      </fieldset>
+      <fieldset class="form-group mb-1">
+        <legend class="ml-1"><label for="password">Password</label></legend>
+        <input type="password" name="password" id="password"/>
+        <a class="form-link forget-password" href="/forget-password">Forget Password?</a>
+      </fieldset>
+      
+      <div class="flex space-between align-center link-container mb-2">
+        <a class="form-link" href="/register"><span style="font-weight: 500;">Not a member?</span> Register</a>
+        <button type="submit" class="btn-local">Login</button>
+      </div>
+    </form>
+  </div>
+</div>

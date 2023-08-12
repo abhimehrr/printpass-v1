@@ -1,0 +1,115 @@
+<%- include('../partials/user-header-main') %>
+
+<main>
+    <div class="container">
+        <!-- Passbook Generator -->
+        
+        <div class="container flex space-between" style="margin: 2.5rem auto;">
+          <div style="margin: 2.5rem auto; position: relative; z-index: -323;">
+            <img src="../../static/img/values-3.png" class="form-img">
+          </div>
+          
+          <div class="form-box form-box-register">
+            <h1 class="title mb-1 text-center">Passbook Generator</h1>
+            <p class="desc">Please enter the customer's detail carefully</p>
+            <p class="msg danger mt-1 mb-1 text-center" style="padding: 5px;">{ Entering wrong details are your responsibility }</p>
+        
+            <form action="/user/passbook-generator" method="post">
+              <fieldset class="form-group mb-1">
+                <legend class="ml-1"><label for="cif">CIF Number</label></legend>
+                <input type="number" name="cif" id="cif">
+              </fieldset>
+
+              <fieldset class="form-group mb-1">
+                <legend class="ml-1"><label for="account">Account Number</label></legend>
+                <input type="number" name="account" id="account">
+              </fieldset>
+              
+              <fieldset class="form-group mb-1">
+                <legend class="ml-1"><label for="account-type">Account Type</label></legend>
+                <select name="accountType" id="account-type" class="drop-down">
+                    <option value="Saving">Saving</option>
+                    <option value="Current">Current</option>
+                    <option value="Tiny Saving">Tiny Saving</option>
+                </select>
+              </fieldset>
+              
+              <fieldset class="form-group mb-1">
+                <legend class="ml-1"><label for="title">Title</label></legend>
+                <select name="title" id="title" class="drop-down">
+                    <option value="Mr">Mr</option>
+                    <option value="Mrs">Mrs</option>
+                    <option value="Mis">Mis</option>
+                </select>
+              </fieldset>
+              
+              <fieldset class="form-group mb-1">
+                <legend class="ml-1"><label for="customer-name">Customer Name</label></legend>
+                <input type="text" name="customerName" id="customer-name">
+              </fieldset>
+              
+              <fieldset class="form-group mb-1">
+                <legend class="ml-1"><label for="guardian">S/D/H/o</label></legend>
+                <input type="text" name="guardian" id="guardian">
+              </fieldset>
+
+              <fieldset class="form-group mb-1">
+                <legend class="ml-1"><label for="pan">PAN Number</label></legend>
+                <input type="text" name="pan" id="pan">
+              </fieldset>
+              
+              <fieldset class="form-group mb-1">
+                <legend class="ml-1"><label for="mobile">Mobile Number</label></legend>
+                <input type="number" name="mobile" id="mobile">
+              </fieldset>
+
+              <fieldset class="form-group mb-1">
+                <legend class="ml-1"><label for="date-of-issue">Date of Issue</label></legend>
+                <input type="date" name="dateOfIssue" id="date-of-issue">
+              </fieldset>
+
+              <fieldset class="form-group mb-1">
+                <legend class="ml-1"><label for="address">Address</label></legend>
+                <input type="text" name="address" id="address">
+              </fieldset>
+              <fieldset class="form-group mb-1">
+                <legend class="ml-1"><label for="distt">Distt.</label></legend>
+                <input type="text" name="distt" id="distt">
+              </fieldset>
+              <div class="mb-1 flex space-between align-center link-container">
+                <button type="reset" class="btn-warning">Reset</button>
+                <button type="submit" class="btn-local">Generate</button>
+              </div>
+            </form>
+          </div>
+        </div> <!-- end -->
+        <div class="font-xs text-center">
+          <div class="flex-center">
+            <p>Print Previous Passbook</p>
+            <a class="ml-1 form-sec-link" href="/user/print-preview">Click Here</a>
+          </div>
+          <p class="mb-1 mt-s font-xxs text-danger">DO NOT WORRY ! Token won't be deduct. Feel free to print.</p>
+          <div class="flex-center mt-1 mb-2">
+            <p>Download Driver</p>
+            <a class="ml-1 form-sec-link text-danger" href="/user/print-preview">Click Here</a>
+          </div>
+        </div>
+    </div>
+</main>
+
+<script>
+  let year = new Date().getFullYear()
+  let month = new Date().getMonth() + 1
+  let date = new Date().getDate()
+
+  if(month.toString().length == 1) {
+      month = `0${month}`
+  }
+
+  if(date.toString().length == 1) {
+      date = `0${date}`
+  }
+
+  const doi = document.getElementById('date-of-issue')
+  doi.value = `${year}-${month}-${date}`
+</script>

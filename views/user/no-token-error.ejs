@@ -1,0 +1,29 @@
+<%- include('../partials/user-header-main') %>
+
+<main>
+    <div class="container">
+        <!-- Error Page -->
+        <div class="container flex space-between" style="margin: 2.5rem auto;">
+          <div style="margin: 2.5rem auto; position: relative;">
+            <img src="../../static/img/values-2.png" class="form-img">
+          </div>
+          
+          <div class="form-box form-box-register">
+            <h1 class="title mb-1 text-center text-danger">No Token... Error !!!</h1>
+            <p class="msg danger mt-1 mb-1 text-center" style="padding: 5px;">
+                <span class="text-700">Insufficient Token,</span><br>
+                Purchase token for access the<br>
+                Passbook Generator.
+                <br><br>Please Contact Admin...
+            </p>
+          </div>
+        </div> <!-- end -->
+        <div class="font-xs text-center">
+          <div class="flex-center">
+            <p>Print Previous Passbook</p>
+            <a class="ml-1 form-sec-link " href="/user/print-preview">Click Here</a>
+          </div>
+          <p class="mb-1 mt-s font-xxs text-danger">DO NOT WORRY ! Token won't be deduct. Feel free to print.</p>
+        </div>
+    </div>
+</main>

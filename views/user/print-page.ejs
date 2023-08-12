@@ -1,0 +1,208 @@
+<main>
+  <% if(typeof pass !='undefined' ) { %>
+    <div class="container">
+      <!-- Passbook Generator -->
+      <div style="margin: 2rem auto;">
+        <div class="form-box" style="width: 650px;">
+          <h1 class="title mb-1 text-center">Print Preview</h1>
+          <p class="desc msg warning p-s-all text-center">Please check all the details carefully.</p>
+
+          <fieldset class="form-group flex space-between mt-2 mb-2" style="height: auto;">
+            <legend class="ml-1 text-danger">&nbsp; To be printed &nbsp;</legend>
+            <div class="print-pre-group mb-s p-s-all">
+              <h4 class="font-xs clr-secondary mb-1">Customer Info.</h4>
+
+              <div style="font-weight: 400; margin-bottom: 5px;" class="mr-s">
+                Name : <span style="font-weight: 500;"><%- pass.title %> <%- pass.customerName %></span>
+              </div>
+              <div style="font-weight: 400; margin-bottom: 5px;" class="mr-s">
+                S/O/D of : <span style="font-weight: 500;"><%- pass.guardian %></span>
+              </div>
+              <div style="font-weight: 400; margin-bottom: 5px;" class="mr-s">
+                Account Type : <span style="font-weight: 500;"><%- pass.accountType %></span>
+              </div>
+              <div style="font-weight: 400; margin-bottom: 5px;" class="mr-s">
+                Account No. : <span style="font-weight: 500;"><%- pass.account %></span>
+              </div>
+              <div style="font-weight: 400; margin-bottom: 5px;" class="mr-s">
+                CIF No. : <span style="font-weight: 500;"><%- pass.cif %></span>
+              </div>
+              <div style="font-weight: 400; margin-bottom: 5px;" class="mr-s">
+                Mobile : <span style="font-weight: 500;"><%- pass.mobile %></span>
+              </div>
+              <div style="font-weight: 400; margin-bottom: 5px;" class="mr-s">
+                PAN : <span style="font-weight: 500;"><%- pass.pan %></span>
+              </div>
+              <div style="font-weight: 400; margin-bottom: 5px;" class="mr-s">
+                Date of Issue : <span style="font-weight: 500;"><%- pass.doi %></span>
+              </div>
+              <div style="font-weight: 400; margin-bottom: 5px;" class="mr-s">
+                Address :
+              </div>
+              <div style="font-weight: 400; margin-bottom: 5px;" class="mr-s">
+                <span style="font-weight: 500;"><%- pass.address %></span>
+              </div>
+              <div style="font-weight: 400; margin-bottom: 5px;" class="mr-s">
+                <span style="font-weight: 500;">DIST. - <%- pass.distt %></span>
+              </div>
+            </div>
+
+            <div class="print-pre-group mb-s p-s-all">
+              <h4 class="font-xs clr-secondary mb-1">Branch Info.</h4>
+              <div style="font-weight: 400; margin-bottom: 5px;" class="mr-s">
+                Name : <span style="font-weight: 500;"><%- branch.branchName %></span>
+              </div>
+              <div style="font-weight: 400; margin-bottom: 5px;" class="mr-s">
+                Address : <span style="font-weight: 500;"><%- branch.branchAddress %></span>
+              </div>
+              <div style="font-weight: 400; margin-bottom: 5px;" class="mr-s">
+                Code : <span style="font-weight: 500;"><%- branch.branchCode %></span>
+              </div>
+              <div style="font-weight: 400; margin-bottom: 5px;" class="mr-s">
+                IFSC : <span style="font-weight: 500;"><%- branch.ifsc %></span>
+              </div>
+              <div style="font-weight: 400; margin-bottom: 5px;" class="mr-s">
+                City : <span style="font-weight: 500;"><%- branch.city %></span>
+              </div>
+              <div style="font-weight: 400; margin-bottom: 5px;" class="mr-s">
+                Email : <span style="font-weight: 500;"><%- branch.branchEmail %></span>
+              </div>
+              <div style="font-weight: 400; margin-bottom: 5px;" class="mr-s">
+                Phone : <span style="font-weight: 500;"><%- branch.branchPhone %></span>
+              </div>
+              <div style="font-weight: 400; margin-bottom: 5px;" class="mr-s">
+                MICR : <span style="font-weight: 500;"><%- branch.micr %></span>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="flex align-center space-between">
+            <div class="printer">
+              <!-- <label for="installedPrinterName">Select Printer</label>
+              <select id="installedPrinterName"></select> -->
+            </div>
+            <div class="btn-container flex align-center space-between">
+              <button class="btn-danger mr-1" onclick="window.close()">Close</button>
+              <button class="btn-local" onclick="printPass()">Print</button>
+            </div>
+          </div>
+
+          <div id="errPrinterMsg" class="text-danger mt-2 display-none"></div>
+
+        </div>
+      </div> <!-- end -->
+    </div>
+    <div id="printPassBox">
+      <div class="print-pass-box display-none" id="printPassbook">
+        <div class="first-col">
+          <div class=" first-col-content">
+            <div class="input">Name :</div>
+            <div class="input"></div>
+            <div class="input" style="margin-left: -2.5mm;"><%- pass.title %> <%- pass.customerName %></div>
+          </div>
+          <div class=" first-col-content">
+            <div class="input">S/D/H/o</div>
+            <div class="input">:</div>
+            <div class="input ml-mm"><%- pass.guardian %></div>
+          </div>
+          <div class=" first-col-content">
+            <div class="input">CIF Number</div>
+            <div class="input">:</div>
+            <div class="input ang ml-b-mm"><%- pass.cif %></div>
+          </div>
+          <div class=" first-col-content">
+            <div class="input">Account No</div>
+            <div class="input">:</div>
+            <div class="input ang ml-b-mm"><%- pass.account %></div>
+          </div>
+          <div class=" first-col-content">
+            <div class="input">A/c Type</div>
+            <div class="input">:</div>
+            <div class="input ml-mm"><%- pass.accountType %></div>
+          </div>
+          <div class=" first-col-content">
+            <div class="input">Address</div>
+            <div class="input">:</div>
+            <div class="input ml-mm" style="width: 200px; word-wrap: break-word;"><%- pass.address %></div>
+          </div>
+          <div class=" first-col-content">
+            <div class="input"></div>
+            <div class="input"></div>
+            <div class="input ml-mm">DIST - <%- pass.distt %></div>
+          </div>
+
+          <div class=" first-col-content">
+            <div class="input">Phone No</div>
+            <div class="input">:</div>
+            <div class="input ml-b-mm ang"><%- pass.mobile %></div>
+          </div>
+          <div class=" first-col-content">
+            <div class="input">Email</div>
+            <div class="input">:</div>
+            <div class="input ml-b-mm"></div>
+          </div>
+          <div class=" first-col-content">
+            <div class="input">D.O.B. (If Minor)</div>
+            <div class="input">:</div>
+            <div class="input ang ml-mm"></div>
+          </div>
+          <div class=" first-col-content">
+            <div class="input">PPO Number</div>
+            <div class="input">:</div>
+            <div class="input ang ml-mm"></div>
+          </div>
+        </div>
+
+        <div class="second-col">
+          <div class="input">Branch: <%- branch.branchName %></div>
+          <div class="input"><%- branch.branchAddress %></div>
+          <div class="input" style="margin-top: 5px;">Email : <span class="ang"><%- branch.branchEmail %></span></div>
+          <div class="input">Phone No. : <span class="ang"><%- branch.branchPhone %></span></div>
+          <div class="input">IFSC : <span class="ang"><%- branch.ifsc %></span></div>
+        </div>
+
+        <div class="third-col">
+          <div class="input" style="margin-left: -65px;">Code : <span class="ang"><%- branch.branchCode %></span></div>
+          <div class="input" style="margin-top: 50px;">Buss. Hrs : <span class="ang">10:00:00-16:00:00</span></div>
+          <div class="input">MICR : <span class="ang"><%- branch.micr %></span></div>
+          <div style="margin-top: 20px;" class="input">MOP : SINGLE</div>
+          <div class="input" style="margin-top: 20px;">Nom Reg No :</div>
+          <div class="input">Customer's PAN : <span class="ang"><%- pass.pan %></span></div>
+          <div class="input">Date of Issue : <span class="ang"><%- pass.doi %></span></div>
+          <div class="input" style="margin-left: 8px;">FIRST</div>
+        </div>
+      </div>
+    </div>
+    <!-- <div id="printPassBox">
+  </div> -->
+    <% } else { %>
+      <h1 class="danger text-white br-s p-s-all text-center" style="margin: 2rem auto;">
+        Data not found!!!
+      </h1>
+      <% } %>
+</main>
+
+<script>
+  document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+    alert("Right Click is not allowed.");
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key == "F12" || e.key == "Control") {
+      e.preventDefault();
+      confirm(`${e.key} is not allowed.`);
+      window.close();
+    }
+  });
+</script>
+
+<script src="../../static/js/script.js"></script>
+<!-- <script src="../../static/js/ie11.js"></script> -->
+<!-- <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script src="../../static/js/JSPrintManager.js"></script> -->
+<!-- <script src="../../static/js/cptable.js"></script> -->
+<!-- <script src="../../static/js/cputils.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script> -->
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> -->
+<!-- <script src="../../static/js/print-manger.js"></script> -->

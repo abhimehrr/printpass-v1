@@ -1,0 +1,74 @@
+<%- include('../partials/admin-header-main') %>
+<%- include('../partials/admin-header-secondary') %>
+
+<main>
+    <div class="container mb-2">
+        <h1 class="text-center font-m font-600 text-danger mt-s ">Revoke Token</h1>
+
+        <div class="flex-center flex-column">
+            
+            <% if(typeof msg != 'undefined'){ %>
+                <p class="mb-1 mt-2 text-center msg <%- msg.class %>" id="msg"><%- msg.text %></p>
+            <% } %>
+
+            <div class="search-box mt-1 mb-2" style="width: 600px;">
+                <form action="/admin/revoke-token" method="post" class="flex align-center space-between">
+                    <div>
+                        <label for="search">Search User</label>
+                    </div>
+                    <div>
+                        <input type="text" name="search" value="<%- search %>" id="search" class="input-border font-xs ml-1 w-s" placeholder="ID, Email, Mobile">
+                    </div>
+                    <div>
+                        <button type="submit" class="btn-border font-600 font-xs ml-1">Search</button>
+                    </div>
+                </form>
+            </div>
+            <div class="profile-card p-s-all">
+                <h2 class="text-secondary text-center mb-s font-600 font-s mt-1">User Info.</h2>
+                <div class="font-500 font-xs ml-2 mt-1 mb-2">
+                    <% if(typeof user != 'undefined') { %>
+                        <table style="position: relative;">
+                            <tr>
+                                <td class="p-xs-bt" >Profile ID</td>
+                                <td class="text-primary"><%- user.pid %></td>
+                            </tr>
+                            <tr>
+                                <td class="p-xs-bt" style="width: calc(100% / 2.8);">Name</td>
+                                <td class="text-primary"><%- user.name %></td>
+                            </tr>
+                            <tr>
+                                <td class="p-xs-bt">Email</td>
+                                <td class="text-primary"><%- user.email %></td>
+                            </tr>
+                            <tr>
+                                <td class="p-xs-bt">Mobile</td>
+                                <td class="text-primary"><%- user.mobile %></td>
+                            </tr>
+                            <tr>
+                                <td class="p-xs-bt" >Token</td>
+                                <td class="text-primary"><%- user.token %></td>
+                            </tr>
+                            <form action="/admin/deduct-token" method="post">
+                                <tr>
+                                    <td class="p-xs-bt" ><label for="revoke-token">Add</label></td>
+                                    <td>
+                                        <input type="number" name="revokeToken" id="revoke-token" style="width: 100px;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="hidden" name="pid" value="<%- user.pid %>"></td>
+                                    <td>
+                                        <button type="submit" class="btn-danger font-500 font-xs mt-1">
+                                            Revoke <i class="fa-solid fa-backward font-xs text-white"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </form>
+                        </table>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

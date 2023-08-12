@@ -1,0 +1,76 @@
+<%- include('../partials/admin-header-main') %>
+<%- include('../partials/admin-header-secondary') %>
+
+<main>
+    <div class="container">
+        <h1 class="text-center font-m font-600 text-primary mt-s ">Token Receipt</h1>
+
+        <div class="flex-center flex-column">
+            <div class="search-box mt-2 mb-2" style="width: 600px;">
+                <form action="/admin/token-receipt" method="post" class="flex align-center space-between">
+                    <div>
+                        <label for="search">Search Token</label>
+                    </div>
+                    <div>
+                        <input type="number" name="search" value="<%- search %>" id="search" class="input-border font-xs ml-1 w-s" placeholder="Txn. Number">
+                    </div>
+                    <div>
+                        <button type="submit" class="btn-border font-600 font-xs ml-1">Search</button>
+                    </div>
+                </form>
+            </div>
+
+            <% if(typeof msg != 'undefined'){ %> -->
+                <p class="mb-1 text-center msg <%- msg.class %>" id="msg"><%- msg.text %></p>
+            <% } %>
+            
+            <div class="mb-1">
+                <button class="btn-local w-l" onclick="printTokenReceipt()">Print Receipt</button>
+            </div>
+            <div id="token-receipt-box" class="mb-2">
+                <div class="profile-card p-s-all w-l">
+                    <h2 class="text-secondary text-center mb-s font-600 font-s mt-1">Token Receipt</h2>
+                    <p class="text-secondary text-center font-xxs font-500" style="text-transform: uppercase; letter-spacing: 1px;">Purchased token acknowledgement slip</p>
+                    <div class="font-500 font-xs p-s-all mt-1 mb-2">
+                        <% if(typeof user != 'undefined') { %>
+                        <table class="border-1 p-s-all" style="width: 100%;">
+                            <tr>
+                                <td class="p-xs-bt" style="width: calc(100% / 2.8);">Profile ID</td>
+                                <td class="text-primary"><%- user.pid %></td>
+                            </tr>
+                            <tr>
+                                <td class="p-xs-bt">Email</td>
+                                <td class="text-primary"><%- user.email %></td>
+                            </tr>
+                            <tr>
+                                <td class="p-xs-bt">Txn. No.</td>
+                                <td class="text-primary"><%- user.txn %></td>
+                            </tr>
+                            <tr>
+                                <td class="p-xs-bt" >Date</td>
+                                <td class="text-primary"><%- user.date.substring(0, 24) %></td>
+                            </tr>
+                            <tr>
+                                <td class="p-xs-bt" >Opening</td>
+                                <td class="text-primary"><%- user.opening %></td>
+                            </tr>
+                            <tr>
+                                <td class="p-xs-bt" >Token</td>
+                                <td class="text-primary"><%- user.purchased %></td>
+                            </tr>
+                        </table>
+                    <% } %>
+                    </div>
+                    <div>
+                        <p class="text-success text-center font-xs font-700 mt-1 mb-1" style="letter-spacing: 1px;">Thank you for business with us.</p>
+                        <p class="text-secondary text-center font-xxs font-700" style="letter-spacing: 1px;">Regards ~</p>
+                        <p class="text-primary text-center font-xs font-700 mt-s" style="letter-spacing: 1px;">Team PrintPass</p>
+                        <div class="flex-center">
+                            <a href="https:printpass.co.in" class="secondary-nav-link font-xxs font-700" style="letter-spacing: 1px;">www.printpass.co.in</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </main>

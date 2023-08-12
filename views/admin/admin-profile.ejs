@@ -1,0 +1,68 @@
+<%- include('../partials/admin-header-main') %>
+<%- include('../partials/admin-header-secondary') %>
+
+
+<main>
+    <div class="container mb-2">
+        
+        <h1 class="title text-center font-s font-500 text-secondary">Profile</h1>
+        <p class="text-center font-m font-600 text-primary mt-s ">Admin, <%- admin.name %></p>
+        <p class="mt-s font-xxs text-success text-center mb-2">Last Login : <%- log.lastLogin %></p>
+
+        <div class="flex-center flex-column">
+            <div class="profile-card p-s-all">
+                <h2 class="text-secondary text-center mb-s font-600 font-s mt-1">Login Info.</h2>
+                
+                <% if(typeof msg != 'undefined'){ %>
+                    <p class="mt-1 text-center msg <%- msg.class %>" id="msg"><%- msg.text %></p>
+                <% } %>
+
+                <div class="font-500 font-xs ml-1 mt-1 mb-2">
+                        <table style="position: relative;">
+                            <form action="/admin/profile" method="post">
+                                <tr>
+                                    <td class="p-xs-bt" style="width: calc(100% / 2.8);">
+                                        <label for="email">Email</label>
+                                    </td>
+                                    <td class="text-primary">
+                                        <input type="email" name="email" id="email" value="<%- admin.email %>">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-xs-bt" ><label for="mobile">Mobile</label></td>
+                                    <td>
+                                        <input type="number" name="mobile" id="mobile" value="<%- admin.mobile %>">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <button type="submit" class="btn-warning font-500 font-xs btn-update">Update</button>
+                                        <p class="mt-s font-xxs text-secondary mb-s">Updated At : <%- log.updatedAt %></p>
+                                        <p class="mt-s font-xxs text-secondary mb-1">Created At : <%- log.createdAt %></p>
+                                    </td>
+                                </tr>
+                            </form>
+
+                            <tr>
+                                <td></td>
+                                <td><div class="divider mb-1 mt-1"></div></td>
+                            </tr>
+                            
+                            <tr>
+                                <form action="/admin/change-password" method="post">
+                                    <td class="p-xs-bt" ><label for="password">Change Password</label></td>
+                                    <td>
+                                        <input type="password" name="oldPassword" id="password" placeholder="Old Password">
+                                        <input type="password" name="password" placeholder="New Password">
+                                        <button type="submit" class="btn-success font-500 font-xs">Change</button>
+                                        <p class="mt-s font-xxs text-danger">Last Changed : <%- log.lastChange %></p>
+                                    </td> 
+                                </form>  
+                            </tr>
+                        </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

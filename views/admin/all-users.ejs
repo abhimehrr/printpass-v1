@@ -1,0 +1,90 @@
+<%- include('../partials/admin-header-main') %>
+<%- include('../partials/admin-header-secondary') %>
+
+<main>
+    <div class="container mb-2">
+        <h1 class="title mb-2 mt-2 text-center text-primary">Joined Users List</h1>
+
+        <% if(typeof msg != 'undefined'){ %>
+            <p class="mb-1 mt-2 text-center msg <%- msg.class %>" id="msg"><%- msg.text %></p>
+        <% } %>
+
+        <div class="flex align-center space-between p-s-all mb-1">
+            <div class="search-box flex align-center">
+                <label for="verified-option">Verified</label>
+                <select name="verified-option" id="verified-option" class="ml-1 font-xs font-500">
+                    <option>All</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+            </div>
+            <div class="search-box flex align-center">
+                <form action="/admin/all-users" method="post">
+                    <label for="search">Search User</label>
+                    <input type="text" name="search" id="search" value="<%- search %>" class="input-border font-xs ml-1 w-l" placeholder="Email, Mobile, Adhaar">
+                    <button type="submit" class="btn-border font-600 font-xs ml-1">Search</button>
+                </form>
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr class="user-list admin-user-head">
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Verified</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="user-list-body">
+                <% users.forEach(user => { %>
+                    <tr class="user-list user-list-admin">
+                        <td><%- user.ID %></td>
+                        <td><%- user.name %></td>
+                        <td><%- user.email %></td>
+                        <td><%- user.mobile %></td>
+                        
+                        
+                        <% if(user.isVerified == 1) { %>
+                        <td class="status">Yes</td>
+                        <% } %>
+
+                        <% if(user.isVerified == 0) { %>
+                        <td class="status">No</td>
+                        <% } %>
+
+                        <td>
+                            <a href="/admin/user-profile?userId=<%- user.ID %>" class="action-icon text-success">
+                                <i class="fa-solid fa-eye"></i>
+                            </a>
+                            <a href="/admin/distribute-token?userId=<%- user.ID %>" class="action-icon text-primary ml-1">
+                                <i class="fa-solid fa-ticket nav-icon"></i>
+                            </a>
+                            <a href="/admin/update-user?userId=<%- user.ID %>" class="action-icon text-warning ml-s">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                            <button class="deleteBtn action-icon text-danger ml-1 b-o-none" onclick="deleteUser(value)" value="<%- user.ID %>" style="cursor: pointer;">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+
+        <% if(eol == true) { %>
+        <p class="mb-2 p-s-all font-700 font-s text-center text-white danger" style="letter-spacing: 2px;">End of List...</p>
+        <% } %>
+
+        <div class="flex align-center space-between m-2">
+            <a href="/admin/all-users?page=<%- page.index - 1 %>" class="btn-danger"><i class="fa-solid fa-left-long"></i> Previous</a>
+            <div class="flex-center">
+                <p class="text-danger text-center">[ 20 Records in a page ]</p>
+                <a href="/admin/all-users?page=-1" class="font-xs form-link ml-1 underline-hover">View All</a>
+            </div>
+            <a href="/admin/all-users?page=<%- page.index + 1 %>" class="btn-success text-white">Next <i class="fa-solid fa-right-long"></i></a>
+        </div>
+    </div>
+</main>
+<script src="../../static/js/all-users-script.js"></script>

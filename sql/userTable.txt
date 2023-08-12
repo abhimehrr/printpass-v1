@@ -1,0 +1,13 @@
+// Insert User 
+
+INSERT INTO `users` (`ID`, `name`, `email`, `mobile`, `password`, `cspName`, `cspCode`, `cspLocation`, `adhaar`, `pan`, `branchName`, `branchCode`, `ifsc`, `city`, `branchEmail`, `branchPhone`, `micr`, `createdAt`, `updatedAt`, `isAdmin`) VALUES ('100000000000000', 'admin', 'login@admin', '143', 'Admin', 'Print Pass', 'CSP123', 'Patna', '2134654654655', '321', 'Saharsa', 'SBIN0000001', 'SBIN0000001', 'Saharsa', 'sbi.shc@sbi.co.in', '1800123', '465321', '', '', '');
+
+//Use this for insert
+
+INSERT INTO `users` (`name`, `email`, `mobile`, `password`, `cspName`, `cspCode`, `cspLocation`, `adhaar`, `pan`, `branchName`, `branchCode`, `ifsc`, `city`, `branchEmail`, `branchPhone`, `micr`, `createdAt`, `updatedAt`, `isAdmin`) VALUES ('admin', 'login@admin', '143', 'Admin', 'Print Pass', 'CSP123', 'Patna', '2134654654655', '321', 'Saharsa', 'SBIN0000001', 'SBIN0000001', 'Saharsa', 'sbi.shc@sbi.co.in', '1800123', '465321', '', '', '1');
+
+
+
+//select
+
+SELECT `ID`, `name`, `email`, `mobile`, `password`, `cspName`, `cspCode`, `cspLocation`, `adhaar`, `pan`, `branchName`, `branchCode`, `ifsc`, `city`, `branchEmail`, `branchPhone`, `micr`, `createdAt`, `updatedAt`, `isAdmin`, `isVerified`, `token` FROM `users` WHERE email='login@admin'

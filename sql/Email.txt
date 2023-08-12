@@ -1,0 +1,25 @@
+Email : help@printpass.co.in
+Pass : Print@pass098
+
+Email : printpasssbi@gmail.com
+Pass : Print@pass.co.in
+
+DB 
+database : shrein_printpass
+user : shrein_printpass_admin
+password : th(*+9eXv&Ub
+
+Mail Settings:	
+	
+NON SSL
+Server	Host				Port
+POP	pop.printpass.co.in		110
+IMAP	imap.printpass.co.in	143
+SMTP	smtp.printpass.co.in	25 or 587
+
+SSL
+Server	Host								Port
+POP	us2.pop.mailhostbox.com					995
+IMAP	us2.imap.mailhostbox.com				993
+SMTP (STARTTLS)	us2.smtp.mailhostbox.com	25 or 587
+

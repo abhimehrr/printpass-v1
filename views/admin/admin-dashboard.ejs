@@ -1,0 +1,55 @@
+<%- include('../partials/admin-header-main') %>
+
+<main>
+    <div class="container mb-2">
+      <div style="margin: 1.5rem auto;">
+        <ul class="flex-center flex-wrap">
+          <li class="list-none">
+            <a href="/admin/dashboard" class="flex-center flex-column admin-dashboard-link font-m font-700 btn-border secondary-bg-hover">
+              <i class="fa-solid fa-braille mb-1"></i>Dashboard
+            </a>
+          </li>
+          <li class="list-none">
+            <a href="/admin/all-users" class="flex-center flex-column admin-dashboard-link font-m font-700 btn-border primary-bg-hover text-white">
+              <i class="fa-solid fa-users mb-1"></i>All Users
+            </a>
+          </li>
+          <li class="list-none">
+            <a href="/admin/user-profile" class="flex-center flex-column admin-dashboard-link font-m font-700 btn-border secondary-bg-hover text-white">
+              <i class="fa-solid fa-user mb-1"></i>User Profile
+            </a>
+          </li>
+          <li class="list-none">
+            <a href="/admin/token-history" class="flex-center flex-column admin-dashboard-link font-m font-700 btn-border primary-bg-hover text-white">
+              <i class="fa-solid fa-clock-rotate-left mb-1"></i>Token History
+            </a>
+          </li>
+          <li class="list-none">
+            <a href="/admin/distribute-token" class="flex-center flex-column admin-dashboard-link font-m font-700 btn-border success-bg-hover text-white">
+              <i class="fa-solid fa-ticket mb-1"></i>Distribute Token
+            </a>
+          </li>
+          <li class="list-none">
+            <a href="/admin/token-receipt" class="flex-center flex-column admin-dashboard-link font-m font-700 text-white btn-border warning-bg-hover">
+              <i class="fa-solid fa-ticket mb-1"></i>Token Receipt
+            </a>
+          </li>
+          <li class="list-none">
+            <a href="/admin/revoke-token" class="flex-center flex-column admin-dashboard-link font-m font-700 btn-border danger-bg-hover text-white">
+              <i class="fa-solid fa-backward mb-1"></i>Revoke Token
+            </a>
+          </li>
+          <li class="list-none">
+            <a href="/admin/deleted-users" class="flex-center flex-column admin-dashboard-link font-m font-700 btn-border danger-bg-hover text-white">
+              <i class="fa-solid fa-user-xmark mb-1"></i>Deleted Users
+            </a>
+          </li>
+          <li class="list-none">
+            <a href="/logout" class="flex-center flex-column admin-dashboard-link font-m font-700 danger danger-bg-hover text-white">
+              <i class="fa-solid fa-arrow-right-from-bracket mb-1"></i>Logout
+            </a>
+          </li>
+      </ul>
+      </div>
+    </div>
+</main>

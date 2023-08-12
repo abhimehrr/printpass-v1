@@ -1,0 +1,60 @@
+<%- include('../partials/admin-header-main') %>
+<%- include('../partials/admin-header-secondary') %>
+
+<main>
+    <div class="container mb-2">
+        <h1 class="title mb-2 mt-1 text-center text-danger">Deleted Users List</h1>
+        <% if(typeof msg != 'undefined'){ %>
+            <p class="mb-1 mt-2 text-center msg <%- msg.class %>" id="msg"><%- msg.text %></p>
+        <% } %>
+
+        <div class="flex align-center space-between p-s-all mb-1">
+            <div class="search-box flex align-center">
+                <label for="search" class="mr-1">Search User</label>
+                <input type="text" name="search" id="search" value="<%- search %>" class="input-border font-xs ml-1 w-l" placeholder="ID, Email, Mobile">
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr class="user-list admin-deleted-user-head">
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>View</th>
+                    <th>Deleted At</th>
+                </tr>
+            </thead>
+            <tbody id="user-list-body">
+                <% users.forEach(user => { %>
+                    <tr class="deleted-user-list user-list user-list-admin">
+                        <td><%- user.id %></td>
+                        <td><%- JSON.parse(user.userData).name %></td>
+                        <td><%- JSON.parse(user.userData).email %></td>
+                        <td><%- JSON.parse(user.userData).mobile %></td>
+                        <td>
+                            <a href="/admin/deleted-users-view?userId=<%- user.id %>" class="deleteBtn action-icon text-danger ml-1 b-o-none">
+                                <i class="fa-solid fa-eye"></i>
+                            </a>
+                        </td>
+                        <td><%- user.deletedAt.substring(0, 24) %> </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+
+        <% if(eol == true) { %>
+        <p class="mb-2 p-s-all font-700 font-s text-center text-white danger" style="letter-spacing: 2px;">End of List...</p>
+        <% } %>
+
+        <div class="flex align-center space-between m-2">
+            <a href="/admin/deleted-users?page=<%- page.index - 1 %>" class="btn-danger"><i class="fa-solid fa-left-long"></i> Previous</a>
+            <div class="flex-center">
+                <p class="text-danger text-center">[ 20 Records in a page ]</p>
+                <a href="/admin/deleted-users?page=-1" class="font-xs form-link ml-1 underline-hover">View All</a>
+            </div>
+            <a href="/admin/deleted-users?page=<%- page.index + 1 %>" class="btn-success text-white">Next <i class="fa-solid fa-right-long"></i></a>
+        </div>
+    </div>
+</main>
+<script src="../../static/js/all-users-script.js"></script>

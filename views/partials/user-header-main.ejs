@@ -1,0 +1,18 @@
+<div class="site-notice text-center msg danger">
+    Please use computer browser (Full Screen) for best experience 
+</div>
+<header class="nav-header mb-1">
+    <nav class="container flex align-center space-between">
+        <ul>
+            <li><a href="/user/dashboard" class="header-title">PrintPass</a></li>
+        </ul>
+        <ul>
+          <li><a href="/user/token-history" class="flex align-center nav-link token"><div><i class="fa-solid fa-ticket nav-icon"></i></div><div>Token : <%- token %></div></a></li>
+        </ul>
+        <ul class="flex align-center justify-center">
+            <li><a href="/user/profile" class="nav-link flex"><div><i class="fa-solid fa-user nav-icon"></i></div><div>Hi, <%- name %></div></a></li>
+            <li><a href="/user/help" class="nav-link flex"><div><i class="fa-solid fa-headset nav-icon"></i></div><div>Help</div></a></li>
+            <li><a href="/logout" class="nav-link flex"><div><i class="fa-solid fa-arrow-right-from-bracket nav-icon"></i></div><div>Logout</div></a></li>
+        </ul>
+    </nav>
+</header>

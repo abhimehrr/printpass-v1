@@ -1,0 +1,152 @@
+<%- include('../partials/admin-header-main') %>
+<%- include('../partials/admin-header-secondary') %>
+
+<link rel="stylesheet" href="../../static/css/main.css">
+<link rel="stylesheet" href="../../static/css/dashboard.css">
+
+<main>
+    <div class="container">
+        <h1 class="title text-center font-700 text-warning mt-1 mb-1">Update User Profile</h1>
+
+        <div class="flex-center flex-column">
+            <div class="search-box mt-1 mb-2" style="width: 600px;">
+                <form action="/admin/update-user" method="post" class="flex align-center space-between">
+                    <div>
+                        <label for="search">Search User</label>
+                    </div>
+                    <div>
+                        <td><input class="input-border font-xs w-s" type="text" name="search" value="<%- search %>" id="search" class="input-border font-xs ml-1 w-s" placeholder="ID, Email, Mobile"></td>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn-border font-600 font-xs ml-1">Search</button>
+                    </div>
+                </form>
+            </div>
+            <% if(typeof user != 'undefined') { %>
+            <form action="/admin/user/update-user" method="post">
+                <% if(typeof msg != 'undefined'){ %>
+                    <p class="mb-2 text-center msg <%- msg.class %>" id="msg"><%- msg.text %></p>
+                <% } %>
+                <div class="profile-card p-s-all mb-1">
+                    <h2 class="text-secondary mb-s mt-1 font-600 font-s ml-s">Login Info.</h2>
+                    <div class="font-500 font-xs ml-1 mb-s">
+                        <table>
+                            <tr>
+                                <td class="p-xs-bt" style="width: calc(100% / 2.8);">Profile ID</td>
+                                <td class="text-primary"><%- user.ID %></td>
+                                <input type="hidden" name="pid" value="<%- user.ID %>">
+                            </tr>
+                            <tr>
+                                <td class="p-xs-bt">Name</td>
+                                <td><input name="name" class="input-border font-xs w-s" type="text" value="<%- user.name %>"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-xs-bt">Email</td>
+                                <td><input name="email" class="input-border font-xs w-s" type="email" value="<%- user.email %>"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-xs-bt">Mobile</td>
+                                <td><input name="mobile" class="input-border font-xs w-s" type="number" value="<%- user.mobile %>"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-xs-bt" ></td>
+                                <td class="flex align-center space-between mt-2">
+                                    <a href="/admin/dashboard" class="form-link">Go Dashboard</a>
+                                    <button type="submit" class="btn-warning mr-s">Update</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="divider mb-1 mt-2"></div>
+
+                    <h2 class="text-secondary mb-s font-600 font-s ml-s">CSP Info.</h2>
+                    <div class="font-500 font-xs ml-1 mb-s">
+                        <table>
+                            <tr>
+                                <td class="p-xs-bt" style="width: calc(100% / 2.8);">CSP Name</td>
+                                <td><input name="cspName" class="input-border font-xs w-s" type="text" value="<%- user.cspName %>"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-xs-bt" >CSP Code</td>
+                                <td><input name="cspCode" class="input-border font-xs w-s" type="text" value="<%- user.cspCode %>"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-xs-bt" >CSP Location</td>
+                                <td><input name="cspLocation" class="input-border font-xs w-s" type="text" value="<%- user.cspLocation %>"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-xs-bt" >Adhaar Number</td>
+                                <td><input name="adhaar" class="input-border font-xs w-s" type="number" value="<%- user.adhaar %>"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-xs-bt" >PAN Number</td>
+                                <td><input name="pan" class="input-border font-xs w-s" type="text" value="<%- user.pan %>"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-xs-bt" ></td>
+                                <td class="flex align-center space-between mt-2">
+                                    <a href="/admin/dashboard" class="form-link">Go Dashboard</a>
+                                    <button type="submit" class="btn-warning mr-s">Update</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="divider mb-1 mt-2"></div>
+                    
+                    <h2 class="text-secondary mb-s font-600 font-s ml-s">Branch Info.</h2>
+                    <div class="font-500 font-xs ml-1 mb-s">
+                        <table>
+                            <tr>
+                                <td class="p-xs-bt" style="width: calc(100% / 2.8);">Branch Name</td>
+                                <td><input name="branchName" class="input-border font-xs w-s" type="text" value="<%- user.branchName %>"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-xs-bt" >Branch Code</td>
+                                <td><input name="branchCode" class="input-border font-xs w-s" type="text" value="<%- user.branchCode %>"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-xs-bt" >IFSC Code</td>
+                                <td><input name="ifsc" class="input-border font-xs w-s" type="text" value="<%- user.ifsc %>"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-xs-bt" >MICR Code</td>
+                                <td><input name="micr" class="input-border font-xs w-s" type="text" value="<%- user.micr %>"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-xs-bt" >City / Distt.</td>
+                                <td><input name="city" class="input-border font-xs w-s" type="text" value="<%- user.city %>"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-xs-bt" >Branch Phone</td>
+                                <td><input name="branchPhone" class="input-border font-xs w-s" type="number" value="<%- user.branchPhone %>"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-xs-bt" >Branch Email</td>
+                                <td><input name="branchEmail" class="input-border font-xs w-s" type="email" value="<%- user.branchEmail %>"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-xs-bt" ></td>
+                                <td class="flex align-center space-between mt-2">
+                                    <a href="/admin/dashboard" class="form-link">Go Dashboard</a>
+                                    <button type="submit" class="btn-warning mr-s">Update</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="divider mb-1 mt-2"></div>
+                    
+                    <div class="font-500 font-xxs ml-1 mb-2">
+                        <p class="mt-s">Updated At : <%- log.updatedAt %></p>
+                        <p class="mt-s">Created At : <%- log.createdAt %></p>
+                    </div>
+                </div>
+            </form>
+            <% } %>
+        </div>
+    </div>
+</main>
+
+<script src="../../static/js/all-users-script.js"></script>

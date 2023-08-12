@@ -1,0 +1,115 @@
+<%- include('../partials/admin-header-main') %>
+<%- include('../partials/admin-header-secondary') %>
+
+<main>
+    <div class="container">
+        <h1 class="title text-center font-700 text-danger mt-2 mb-2">Deleted User Data</h1>
+
+        <div class="flex-center flex-column">
+            <% if(typeof msg != 'undefined'){ %>
+                <p class="mb-1 mt-1 text-center msg <%- msg.class %>" id="msg"><%- msg.text %></p>
+            <% } %>
+
+            <% if(typeof user != 'undefined') { %>
+            <div class="profile-card p-s-all mb-1">
+                <h2 class="text-secondary mb-s mt-1 font-600 font-s ml-1">Login Info.</h2>
+                <div class="font-500 font-xs ml-2 mb-s">
+                    <table>
+                        <tr>
+                            <td class="p-xs-bt" style="width: calc(100% / 2.8);">Profile ID</td>
+                            <td class="text-primary"><%- user.ID %></td>
+                        </tr>
+                        <tr>
+                            <td class="p-xs-bt">Name</td>
+                            <td class="text-primary"><%- user.name %></td>
+                        </tr>
+                        <tr>
+                            <td class="p-xs-bt">Email</td>
+                            <td class="text-primary"><%- user.email %></td>
+                        </tr>
+                        <tr>
+                            <td class="p-xs-bt">Mobile</td>
+                            <td class="text-primary"><%- user.mobile %></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="divider mb-1 mt-2"></div>
+
+                <h2 class="text-secondary mb-s font-600 font-s ml-1">CSP Info.</h2>
+                <div class="font-500 font-xs ml-2 mb-s">
+                    <table>
+                        <tr>
+                            <td class="p-xs-bt" style="width: calc(100% / 2);">CSP Name</td>
+                            <td class="text-primary"><%- user.cspName %></td>
+                        </tr>
+                        <tr>
+                            <td class="p-xs-bt" ></i>CSP Code</td>
+                            <td class="text-primary"><%- user.cspCode %></td>
+                        </tr>
+                        <tr>
+                            <td class="p-xs-bt" ></i>CSP Location</td>
+                            <td class="text-primary"><%- user.cspLocation %></td>
+                        </tr>
+                        <tr>
+                            <td class="p-xs-bt" ></i>Adhaar No.</td>
+                            <td class="text-primary"><%- user.adhaar %></td>
+                        </tr>
+                        <tr>
+                            <td class="p-xs-bt" ></i>PAN Number</td>
+                            <td class="text-primary"><%- user.pan %></td>
+                        </tr>
+                        
+                    </table>
+                </div>
+
+                <div class="divider mb-1 mt-2"></div>
+                
+                <h2 class="text-secondary mb-s font-600 font-s ml-1">Branch Info.</h2>
+                <div class="font-500 font-xs ml-2 mb-s">
+                    <table>
+                        <tr>
+                            <td class="p-xs-bt" style="width: calc(100% / 2);">Branch Name</td>
+                            <td class="text-primary"><%- user.branchName %></td>
+                        </tr>
+                        <tr>
+                            <td class="p-xs-bt" ></i>Branch Code</td>
+                            <td class="text-primary"><%- user.branchCode %></td>
+                        </tr>
+                        <tr>
+                            <td class="p-xs-bt" ></i>IFSC Code</td>
+                            <td class="text-primary"><%- user.ifsc %></td>
+                        </tr>
+                        <tr>
+                            <td class="p-xs-bt" ></i>MICR Code</td>
+                            <td class="text-primary"><%- user.micr %></td>
+                        </tr>
+                        <tr>
+                            <td class="p-xs-bt" ></i>City / Distt.</td>
+                            <td class="text-primary"><%- user.city %></td>
+                        </tr>
+                        <tr>
+                            <td class="p-xs-bt" ></i>Branch Phone</td>
+                            <td class="text-primary"><%- user.branchPhone %></td>
+                        </tr>
+                        <tr>
+                            <td class="p-xs-bt" ></i>Branch Email</td>
+                            <td class="text-primary"><%- user.branchEmail %></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="divider mb-1 mt-2"></div>
+                
+                <div class="font-500 font-xxs ml-2 mb-2">
+                    <p class="mt-s">Deleted At : <%- deletedAt %></p>
+                    <p class="mt-s">Updated At : <%- user.updatedAt %></p>
+                    <p class="mt-s">Created At : <%- user.createdAt %></p>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</main>
+
+<script src="../../static/js/all-users-script.js"></script>

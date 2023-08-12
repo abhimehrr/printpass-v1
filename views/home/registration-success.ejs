@@ -1,0 +1,20 @@
+<%- include('../partials/header-main') %>
+<div class="container flex space-between align-center mt-7">
+    <div style="margin: 2.5rem auto;">
+      <img src="../../static/img/pricing-ultimate.png" class="form-img-sm">
+    </div>
+
+    <div class="form-box fluid-box" style="width: 400px">
+        <h2 class="mb-1 mt-1" style="color: var(--success);">
+            <strong>Success : </strong>Registration has been successful.
+        </h2>
+        <p>
+            Dear <strong><%- name %>,</strong> Please verify your email. A verification link has been sent to your email : <strong><%- email %></strong>
+        </p>
+        <p class="mb-1 mt-1" style="color: var(--danger);">Check your "spam" if email is not in "inbox"</p>
+        <div class="flex space-around align-center link-container mb-1">
+            <a class="form-link" href="/">Go Home</a>
+            <a class="btn-local" href="/login">Login</a>
+        </div>
+    </div>
+  </div>

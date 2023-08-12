@@ -1,0 +1,56 @@
+<%- include('../partials/user-header-main') %>
+
+<main>
+    <div class="container">
+        <h1 class="title mb-2 mt-2 text-center">Token History</h1>
+        <div class="search-box flex align-center mb-1">
+            <form action="/user/token-history" method="post">
+                <label for="search">Search Token History</label>
+                <input type="number" name="search" id="search"  class="input-border font-xs ml-1 w-l" value="<%- search %>" placeholder="Transaction Number">
+                <button type="submit" class="btn-border font-600 font-xs ml-1">Search</button>
+            </form>
+        </div>
+        <table class="token-history">
+            <thead>
+                <tr class="token-table token-head">
+                    <th>Txn No.</th>
+                    <th>Date</th>
+                    <th>Opening</th>
+                    <th>Purchased Token</th>
+                    <th>Closing</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="token-row">
+                <% histories.forEach(data => { %>
+                    <% if(typeof data.date != 'undefined') { %>
+                    <tr class="token-table user-token-table">
+                        <td><%- data.transactionId %></td>
+                        <% if(typeof data.date != 'undefined') { %>
+                        <td><%- data.date.substring(0, 24) %></td>
+                        <% } %>
+                        <td><%- data.opening %></td>
+                        <td><%- data.purchased %></td>
+                        <td><%- data.opening + data.purchased %></td>
+                    </tr>
+                    <% } %>
+                <% }) %>
+            </tbody>
+        </table>
+
+        <% if(eol == true) { %>
+            <p class="mb-2 p-s-all font-700 font-s text-center text-white danger" style="letter-spacing: 2px;">End of List...</p>
+        <% } %>
+
+        <div class="flex align-center space-between m-2">
+            <a href="/user/token-history?page=<%- page.index - 1 %>" class="btn-danger"><i class="fa-solid fa-left-long"></i> Previous</a>
+            <div class="flex-center">
+                <p class="text-danger text-center">[ 20 Records in a page ]</p>
+                <a href="/user/token-history?page=-1" class="font-xs form-link ml-1 underline-hover">View All</a>
+            </div>
+            <a href="/user/token-history?page=<%- (page.index + 1) %>" class="btn-success text-white">Next <i class="fa-solid fa-right-long"></i></a>
+        </div>
+    </div>
+</main>
+
+<script src="../../static/js/search-user-token-history.js"></script>

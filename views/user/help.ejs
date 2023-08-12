@@ -1,0 +1,53 @@
+<%- include('../partials/user-header-main') %>
+
+<main>
+    <div class="container">
+        <!-- Help -->
+        <div class="container flex space-between" style="margin: 2.5rem auto;">
+          <div style="margin: 2.5rem auto; position: relative;">
+            <img src="../../static/img/values-1.png" class="form-img">
+          </div>
+        
+          <div class="form-box form-box-register">
+            <h1 class="title mb-1 text-center">Contact Us</h1>
+            <p class="desc">Need Help? Raise a ticket.</p>
+
+            <% if(typeof msg != 'undefined'){ %>
+                <p class="mb-1 text-center msg <%- msg.class %>" id="msg"><%- msg.text %></p>
+            <% } %>
+
+            <form action="" method="post">
+              <fieldset class="form-group mb-1">
+                <legend class="ml-1"><label for="name">Name</label></legend>
+                <input type="text" name="name" id="name" value="<%- user.name %>" readonly>
+              </fieldset>
+              
+              <fieldset class="form-group mb-1">
+                <legend class="ml-1"><label for="email">Email</label></legend>
+                <input type="email" name="email" id="email" value="<%- user.email %>" readonly>
+              </fieldset>
+
+              <fieldset class="form-group mb-1">
+                <legend class="ml-1"><label for="subject">Subject</label></legend>
+                <input type="text" name="subject" id="subject">
+              </fieldset>
+              
+              <fieldset class="form-group mb-1">
+                <legend class="ml-1"><label for="mobile">Mobile Number</label></legend>
+                <input type="number" name="mobile" id="mobile">
+              </fieldset>
+
+              <fieldset class="form-group mb-1 message">
+                <legend class="ml-1"><label for="message">Message</label></legend>
+                <textarea name="message" id="message"></textarea>
+              </fieldset>
+
+              <div class="mb-1 flex space-between align-center link-container">
+                <p style="color: var(--danger);">* Resolution time is 1-2 days</p>
+                <button type="submit" class="btn-success">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div> <!-- end -->
+    </div>
+</main>

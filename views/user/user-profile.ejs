@@ -1,0 +1,93 @@
+<%- include('../partials/user-header-main') %>
+
+<main>
+    <div class="container">
+        <h1 class="title text-center font-s font-500 text-secondary">Profile</h1>
+        <p class="text-center font-m font-600 text-primary">Hi, <%- user.name %></p>
+        <p class="mt-s font-xxs text-success text-center mb-2">Last Login : <%- log.lastLogin %></p>
+
+        <div class="flex-center flex-column">
+            <div class="profile-card p-s-all mb-1">
+                <h2 class="text-secondary mb-s mt-1 font-600 font-s ml-s">Login Info.</h2>
+                <div class="font-500 font-xs ml-1 mb-s">
+                    <table>
+                        <tr>
+                            <td class="p-xs-bt" style="width: calc(100% / 2.8);">Profile ID</td>
+                            <td class="text-primary"><%- user.ID %></td>
+                        </tr>
+                        <tr>
+                            <td class="p-xs-bt">Email</td>
+                            <td class="text-primary"><%- user.email %></td>
+                        </tr>
+                        <tr>
+                            <td class="p-xs-bt" >Mobile</td>
+                            <td class="text-primary"><%- user.mobile %></td>
+                        </tr>
+                        <tr>
+                            <form action="/user/change-password" method="post">
+                                <td class="p-xs-bt" ><label for="password">Change Password</label></td>
+                                <td>
+                                    <input type="password" name="oldPassword" id="password" placeholder="Old Password">
+                                    <input type="password" name="password" placeholder="New Password">
+                                    <button type="submit" class="btn-success font-500 font-xs">Change</button>
+                                    <p class="mt-s font-xxs text-danger">Last Changed : <%- log.lastChange %></p>
+                                </td>
+                            </form>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="divider mb-1 mt-2"></div>
+                
+                <h2 class="text-secondary mb-s font-600 font-s ml-s">Branch Info.</h2>
+                <div class="font-500 font-xs ml-1 mb-s">
+                    <table>
+                        <tr>
+                            <td class="p-xs-bt" style="width: calc(100% / 2);">Name</td>
+                            <td class="text-primary"><%- user.branchName %></td>
+                        </tr>
+                        <tr>
+                            <td class="p-xs-bt">Address</td>
+                            <td class="text-primary"><%- user.branchAddress %></td>
+                        </tr>
+                        <tr>
+                            <td class="p-xs-bt" ></i>Code</td>
+                            <td class="text-primary"><%- user.branchCode %></td>
+                        </tr>
+                        <tr>
+                            <td class="p-xs-bt" ></i>IFSC Code</td>
+                            <td class="text-primary"><%- user.ifsc %></td>
+                        </tr>
+                        <tr>
+                            <td class="p-xs-bt" ></i>MICR Code</td>
+                            <td class="text-primary"><%- user.micr %></td>
+                        </tr>
+                        <tr>
+                            <td class="p-xs-bt" ></i>City / Distt.</td>
+                            <td class="text-primary"><%- user.city %></td>
+                        </tr>
+                        <tr>
+                            <td class="p-xs-bt" ></i>Phone</td>
+                            <td class="text-primary"><%- user.branchPhone %></td>
+                        </tr>
+                        <tr>
+                            <td class="p-xs-bt" ></i>Email</td>
+                            <td class="text-primary"><%- user.branchEmail %></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="divider mb-1 mt-2"></div>
+                
+                <div class="font-500 font-xxs ml-1 mb-2">
+                    <p class="mt-s">Created At : <%- log.createdAt %></p>
+                    <p class="mt-s">Updated At : <%- log.updatedAt %></p>
+                    <p class="mt-1 p-s-all msg warning text-secondary text-center">
+                        <span class="font-700">Alert :</span> Any changes in profile is not allowed except password,<br>Only Admin can update the profile,
+                        If needed contact Admin. <br> <a href="/user/help" class="form-link font-600">Contact Admin</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

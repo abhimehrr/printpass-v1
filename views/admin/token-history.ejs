@@ -1,0 +1,59 @@
+<%- include('../partials/admin-header-main') %>
+<%- include('../partials/admin-header-secondary') %>
+
+<main>
+    <div class="container mb-2">
+        <h1 class="title mb-2 mt-2 text-center text-success">Distributed Token History</h1>
+
+        <% if(typeof msg != 'undefined'){ %>
+        <p class="mb-1 mt-2 text-center msg <%- msg.class %>" id="msg"><%- msg.text %></p>
+        <% } %>
+        
+        <div class="search-box flex align-center p-s-all mb-1">
+            <form action="/admin/token-history" method="post">
+                <label for="search">Search Token History</label>
+                <input type="text" name="search" id="search" value="<%- search %>" class="input-border font-xs ml-1 w-l" placeholder="Email, Txn No.">
+                <button type="submit" class="btn-border font-600 font-xs ml-1">Search</button>
+            </form>
+        </div>
+        <table class="token-history">
+            <thead>
+                <tr class="admin-token-table admin-token-head">
+                    <th>Email</th>
+                    <th>Txn No.</th>
+                    <th>Date</th>
+                    <th>Opening</th>
+                    <th>Purchased Token</th>
+                    <th>Closing</th>
+                </tr>
+            </thead>
+            <tbody class="token-row">
+                <% histories.forEach(history => { %>
+                    <tr class="admin-token-table search-admin-token-table">
+                        <td><%- history.email %></td>
+                        <td><%- history.transactionId %></td>
+                        <td><%- history.date.substring(0, 24) %></td>
+                        <td><%- history.opening %></td>
+                        <td><%- history.purchased %></td>
+                        <td><%- history.purchased + history.opening %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+
+        <% if(eol == true) { %>
+            <p class="mb-2 p-s-all font-700 font-s text-center text-white danger" style="letter-spacing: 2px;">End of List...</p>
+        <% } %>
+
+        <div class="flex align-center space-between m-2">
+            <a href="/admin/token-history?page=<%- page.index - 1 %>" class="btn-danger"><i class="fa-solid fa-left-long"></i> Previous</a>
+            <div class="flex-center">
+                <p class="text-danger text-center">[ 20 Records in a page ]</p>
+                <a href="/admin/token-history?page=-1" class="font-xs form-link ml-1 underline-hover">View All</a>
+            </div>
+            <a href="/admin/token-history?page=<%- page.index + 1 %>" class="btn-success text-white">Next <i class="fa-solid fa-right-long"></i></a>
+        </div>
+    </div>
+</main>
+
+<script src="../../static/js/search-admin-token-history.js"></script>

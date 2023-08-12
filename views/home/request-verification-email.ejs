@@ -1,0 +1,39 @@
+<%- include('../partials/header-main') %>
+<div class="container flex space-between align-center mobile-container mb-5">
+    <div style="margin: 2.5rem auto;">
+      <img src="../../static/img/pricing-starter.png" class="form-img-sm">
+    </div>
+  
+    <div class="form-box fluid-box mt-7">
+      <h1 class="title mb-1 text-center">Verify Email</h1>
+      <p class="desc">Request a verification email, enter your email.</p>
+  
+    <% if(typeof msg != 'undefined'){ %>
+      <p class="mb-1 text-center msg <%- msg.class %>" id="msg"><%- msg.text %></p>
+    <% } %>
+    
+      <form action="" method="post">
+          <fieldset class="form-group mb-1">
+              <legend class="ml-1"><label for="email">Email</label></legend>
+              <input type="email" name="email" id="email" value="<%- email %>">
+          </fieldset>
+              
+          <div class="flex space-between align-center link-container mb-1">
+            <a class="form-link" href="/register">Already Verified?<span style="font-weight: 700;"> Login</span></a>
+            <button type="submit" class="btn-local">Send</button>
+          </div>
+      </form>
+
+      <% if(typeof user != 'undefined') { %>
+        <div class="text-center mb-1">
+          <p style="color: var(--success); font-weight: 500;">Dear <strong><%- user.name %>, </strong> &nbsp;
+            A verification link has been sent to your email : 
+            <strong><%- user.email %></strong>
+            <br>
+          </p>
+          <p style="color: var(--danger);" class="mb-1 mt-1">Check your "spam" if email is not in "inbox"</p>
+          <a class="form-link" href="/" style="font-weight: 500;">Go Home</a>
+        </div>
+        <% } %>
+    </div>
+  </div>

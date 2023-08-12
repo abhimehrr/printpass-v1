@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+@font-face {
+  font-family: "Angsana";
+  src: url('../font/ANGSA.ttf');
+}
+
+body {
+  position: relative;
+}
+
+.print-pass-box {
+  width: 210mm;
+  /*  height: 297mm;  */
+  font-weight: 500;
+  padding-top: 345px;
+  color: black;
+  position: relative;
+
+  /* background-color: grey; */
+}
+.print-pass-box input, .input {
+  background: none;
+  border: none;
+  outline: none;
+  font-family: "AngsanaNew" !important;
+  /* font-family: 'Times New Roman' !important; */
+  /* font-family: 'Lora', serif; */
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+  font-size: 12px;
+}
+.ang {
+  /* font-size: 13px; */
+  font-family: 'Times New Roman' !important;
+}
+.first-col {
+  position: relative;
+  padding-top: 25mm;
+  margin-left: 12px;
+}
+.second-col {
+  position: absolute;
+  top: 350px;
+  left: 320px;
+}
+.second-col input {
+  width: 250px;
+}
+.third-col {
+  position: absolute;
+  top: 350px;
+  left: 580px;
+}
+.first-col-content {
+  display: grid;
+  grid-template-columns: 32mm 2mm auto;
+}
+.ml-mm {
+  margin-left: 2mm;
+}
+.ml-b-mm {
+  margin-left: 25mm;
+}
+.box-l {
+  width: 280px;
+}
+.display-none {
+  display: none;
+}
+.display-show {
+  display: block;
+}
+.dummy {
+  margin-top: -300px;
+  z-index: -4544;
+}
+.btn-container {
+  width: 200px;
+}
+.printer select {
+  border-color: var(--secondary);
+  color: var(--secondary);
+  outline: none;
+  border-radius: 3px;
+  padding: 2px 5px;
+  font-size: 17px;
+  width: 250px;
+}
+.printer select:focus {
+  border-color: var(--primary);
+}
+.printer select option {
+  color: var(--primary);
+}
